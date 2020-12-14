@@ -1,4 +1,4 @@
-
+//adding a comment
 
 function addIncome(){
     const list = document.querySelector('.income');
