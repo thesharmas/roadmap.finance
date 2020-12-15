@@ -7,13 +7,32 @@
     </head>
     <body>
         <p> Lets Go </p>
-        <div class ="age">
-            How old are you?: 
-            <input type="text" id="age">
-            <button id="next" onclick="addIncome()" >Next</button>
-          
+        <div class = "container">
+            <p> Questions </p>
+                <div class="questions"> 
+                <div class ="age">
+                How old are you?: 
+                <input type="text" id="age">
+                <button id="next" onclick="addIncome()" >Next</button>
+            
+
+                </div>
+            </div>
+            <div class="summary">
+                <p>Summary </p>
+                <table class="sumtable">
+                    <thead>
+                        <tr>
+                            <th> Question </th>
+                            <th> Answer </th>
+                        </tr>
+                    </thead>
+                    <tbody class="summarybody">
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-        
 
     </body>
 </html>

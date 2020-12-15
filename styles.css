@@ -1,7 +1,17 @@
+.container {
+  display: flex;
+}
+.questions{
+  width: 50%;
+}
+.summary{
+  flex-grow: 1;
+}
+
 .age,.income,.expenses,.savings {
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
+    width: 400px;
+    border: 5px solid green;
+    padding: 10px;
     margin: 20px;
   }
 

@@ -3,7 +3,9 @@
 
 function addIncome(){
     //create div
-    const body = document.querySelector("body")
+    
+   
+    const body = document.querySelector(".questions")
     const div = document.createElement('div')
     div.className ="income"
     div.innerHTML ="What is your income? "
@@ -19,6 +21,12 @@ function addIncome(){
     list.appendChild(but);
     age = document.getElementById("age").value;
     console.log("age = ",age);
+
+    const table = document.querySelector(".summarybody")
+    const tabitem = document.createElement('tr')
+    tabitem.innerHTML = "<td> Your Age </td> <td> " + age + "</td>";
+    table.appendChild(tabitem);
+
     but.onclick = function () {
          addExpenses();
     }
@@ -26,7 +34,7 @@ function addIncome(){
 } 
 
 function addExpenses(){
-    const body = document.querySelector("body")
+    const body = document.querySelector(".questions")
     const div = document.createElement('div')
     div.className ="expenses"
     body.appendChild(div)
@@ -35,6 +43,11 @@ function addExpenses(){
     inc = document.querySelector(".inc").value;
     console.log("inc = ",inc);
 
+    const table = document.querySelector(".summarybody")
+    const tabitem = document.createElement('tr')
+    tabitem.innerHTML = "<td> Your Income </td> <td> " + inc + "</td>";
+    table.appendChild(tabitem);
+    
     const list = document.querySelector('.expenses');
     list.innerHTML ="What are your expenses? "
     const liitem = document.createElement('input');
@@ -52,7 +65,7 @@ function addExpenses(){
 
 
 function addSavings(){
-    const body = document.querySelector("body")
+    const body = document.querySelector(".questions")
     const div = document.createElement('div')
     div.className ="savings"
     body.appendChild(div)
@@ -61,6 +74,11 @@ function addSavings(){
     
     exp = document.querySelector(".exp").value;
     console.log("exp", exp)
+
+    const table = document.querySelector(".summarybody")
+    const tabitem = document.createElement('tr')
+    tabitem.innerHTML = "<td> Your expenses </td> <td> " + exp + "</td>";
+    table.appendChild(tabitem);
 
     const list = document.querySelector('.savings');
     list.innerHTML ="What are your Savings? "
@@ -78,8 +96,14 @@ function addSavings(){
 } 
 
 function TestSavings(){
+      
     sav = document.querySelector(".sav").value;
     console.log("sav", exp)
+
+    const table = document.querySelector(".summarybody")
+    const tabitem = document.createElement('tr')
+    tabitem.innerHTML = "<td> Your Savings </td> <td> " + sav + "</td>";
+    table.appendChild(tabitem);
 
     if (sav<=6*exp){
         alert("stop and save first")
