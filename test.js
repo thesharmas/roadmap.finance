@@ -2,8 +2,14 @@
 //adding a comment
 
 function addIncome(){
+    //create div
+    const body = document.querySelector("body")
+    const div = document.createElement('div')
+    div.className ="income"
+    div.innerHTML ="What is your income? "
+    body.appendChild(div)
+
     const list = document.querySelector('.income');
-    list.innerHTML ="What is your income? "
     const liitem = document.createElement('input');
     liitem.type="text";
     liitem.className="inc"
@@ -20,6 +26,12 @@ function addIncome(){
 } 
 
 function addExpenses(){
+    const body = document.querySelector("body")
+    const div = document.createElement('div')
+    div.className ="expenses"
+    body.appendChild(div)
+
+       
     inc = document.querySelector(".inc").value;
     console.log("inc = ",inc);
 
@@ -40,6 +52,13 @@ function addExpenses(){
 
 
 function addSavings(){
+    const body = document.querySelector("body")
+    const div = document.createElement('div')
+    div.className ="savings"
+    body.appendChild(div)
+    
+    
+    
     exp = document.querySelector(".exp").value;
     console.log("exp", exp)
 
