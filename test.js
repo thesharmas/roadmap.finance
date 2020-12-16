@@ -1,112 +1,76 @@
 //adding from other laptop
 //adding a comment
 
+function addQuestion(selector,question,nextfunc)
+{
+    const body = document.querySelector(".questions")
+    const div = document.createElement('div')
+    div.className =selector
+    div.innerHTML =question
+    body.appendChild(div)
+   
+
+    const list = document.querySelector('.'+selector);
+    const liitem = document.createElement('input');
+    liitem.type="text";
+    liitem.id=selector;
+    list.appendChild(liitem);
+    const but = document.createElement('button');
+    but.textContent ='Next';
+    list.appendChild(but);
+    
+    but.onclick = function () {
+        nextfunc();
+   }
+}
+
+function addSummary(selector){
+    value = document.getElementById(selector).value;
+    
+    const table = document.querySelector(".summarybody")
+    const tabitem = document.createElement('tr')
+    tabitem.innerHTML = "<td> Your "+ selector +" </td> <td> " + value + "</td>";
+    table.appendChild(tabitem);
+    return value
+}
+
+
+
 function addIncome(){
     //create div
     
+    addQuestion("income","What is your income",addExpenses);
    
-    const body = document.querySelector(".questions")
-    const div = document.createElement('div')
-    div.className ="income"
-    div.innerHTML ="What is your income? "
-    body.appendChild(div)
-
-    const list = document.querySelector('.income');
-    const liitem = document.createElement('input');
-    liitem.type="text";
-    liitem.className="inc"
-    list.appendChild(liitem);
-    const but = document.createElement('button');
-    but.textContent ='Next';
-    list.appendChild(but);
-    age = document.getElementById("age").value;
-    console.log("age = ",age);
-
-    const table = document.querySelector(".summarybody")
-    const tabitem = document.createElement('tr')
-    tabitem.innerHTML = "<td> Your Age </td> <td> " + age + "</td>";
-    table.appendChild(tabitem);
-
-    but.onclick = function () {
-         addExpenses();
-    }
-
+    age=addSummary("age");
+     
 } 
 
 function addExpenses(){
-    const body = document.querySelector(".questions")
-    const div = document.createElement('div')
-    div.className ="expenses"
-    body.appendChild(div)
-
-       
-    inc = document.querySelector(".inc").value;
-    console.log("inc = ",inc);
-
-    const table = document.querySelector(".summarybody")
-    const tabitem = document.createElement('tr')
-    tabitem.innerHTML = "<td> Your Income </td> <td> " + inc + "</td>";
-    table.appendChild(tabitem);
     
-    const list = document.querySelector('.expenses');
-    list.innerHTML ="What are your expenses? "
-    const liitem = document.createElement('input');
-    liitem.className="exp";
-    liitem.type="text";
-    list.appendChild(liitem);
-    const but = document.createElement('button');
-    but.textContent ='Next';
-    list.appendChild(but);
-    but.onclick = function () {
-        addSavings();
-    }
-
+   
+   addQuestion("expenses","What are your expenses",addSavings); 
+   inc=addSummary("income");
+   
 } 
 
 
 function addSavings(){
-    const body = document.querySelector(".questions")
-    const div = document.createElement('div')
-    div.className ="savings"
-    body.appendChild(div)
     
+    addQuestion("savings","What are your cash savings",TestSavings); 
+    exp=addSummary("expenses")
+  
+
     
-    
-    exp = document.querySelector(".exp").value;
-    console.log("exp", exp)
-
-    const table = document.querySelector(".summarybody")
-    const tabitem = document.createElement('tr')
-    tabitem.innerHTML = "<td> Your expenses </td> <td> " + exp + "</td>";
-    table.appendChild(tabitem);
-
-    const list = document.querySelector('.savings');
-    list.innerHTML ="What are your Savings? "
-    const liitem = document.createElement('input');
-    liitem.className="sav";
-    liitem.type="text";
-    list.appendChild(liitem);
-    const but = document.createElement('button');
-    but.textContent ='Next';
-    list.appendChild(but);
-    but.onclick = function () {
-        TestSavings();
-    }
-
 } 
 
 function TestSavings(){
       
-    sav = document.querySelector(".sav").value;
-    console.log("sav", exp)
-
-    const table = document.querySelector(".summarybody")
-    const tabitem = document.createElement('tr')
-    tabitem.innerHTML = "<td> Your Savings </td> <td> " + sav + "</td>";
-    table.appendChild(tabitem);
-
+    sav=addSummary("savings")
+    
     if (sav<=6*exp){
-        alert("stop and save first")
+        const advice = document.querySelector(".advicebox");
+        advice.innerHTML = "<p><b> SAVE FIRST BRO</b></p>"
+
     }
     
 } 
