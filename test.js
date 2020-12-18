@@ -68,9 +68,9 @@ function TestSavings(){
     sav=addSummary("savings")
     
     if (sav<=6*exp){
-        const advice = document.querySelector(".advicebox");
-        advice.innerHTML = "<p><b> SAVE FIRST BRO</b></p>"
-
+        const advice = document.querySelector(".container2");
+        const append = "<div class = advicebox><p><b> SAVE FIRST BRO</b></p></div>"
+        advice.insertAdjacentHTML("beforeend",append);
     }
     
 } 
