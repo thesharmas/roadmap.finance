@@ -1,12 +1,30 @@
-.container {
-  display: flex;
-}
 .questions{
-  width: 50%;
+  grid-area : questions;
+  
 }
+
 .summary{
-  flex-grow: 1;
+  grid-area : summary;
+  border: 5px solid rgb(128, 68, 0);
+    padding: 10px;
+    margin: 20px;
+ }
+
+ .advicebox {
+   grid-area : advicebox;
+   border: 5px dotted blueviolet;
+   align-content:stretch;
+  }
+
+.container {
+    display: grid;
+    grid-template-columns: 50%, 50%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "questions summary"
+    ". advicebox"
 }
+
 
 .age,.income,.expenses,.savings {
     width: 400px;
