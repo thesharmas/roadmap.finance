@@ -17,11 +17,13 @@ function addQuestion(selector,question,nextfunc)
     list.appendChild(liitem);
     const but = document.createElement('button');
     but.textContent ='Next';
+    but.className=selector+"button";
     list.appendChild(but);
     
     but.onclick = function () {
         nextfunc();
    }
+
 }
 
 function addSummary(selector){
@@ -31,6 +33,12 @@ function addSummary(selector){
     const tabitem = document.createElement('tr')
     tabitem.innerHTML = "<td> Your "+ selector +" </td> <td> " + value + "</td>";
     table.appendChild(tabitem);
+    
+    //Remove button from previous step
+    butsel = "."+ selector+"button"
+    element = document.querySelector(butsel)
+    element.parentNode.removeChild(element)
+
     return value
 }
 
@@ -40,8 +48,10 @@ function addIncome(){
     //create div
     
     addQuestion("income","What is your income",addExpenses);
-   
+    
     age=addSummary("age");
+    
+    
      
 } 
 
