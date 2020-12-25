@@ -31,10 +31,42 @@
 }
 
 .age,.income,.expenses,.savings {
-    width: 400px;
+    width: 350px;
     border: 5px solid green;
     padding: 10px;
     margin: 20px;
   }
 
+input{
+    width : 100px;
+    padding: 5;
+    margin: 5;
+    border-radius:10px;
+    box-sizing: border-box;
+  }
+
+
+
+button {
+  appearance:none;
+  -webkit-appearance:none;
+  padding:10px;
+  border:none;
+  background-color:#3F51B5;
+  color:#fff;
+  font-weight:600;
+  border-radius:5px;
+  width:20%;
+  }
+
+label {
+  width : 400px;
+  padding: 5;
+  margin: 5;
+  display: inline-block;
+  box-sizing: border-box;
+  }
+
   
+
+

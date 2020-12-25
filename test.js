@@ -6,13 +6,13 @@ function addQuestion(selector,question,nextfunc)
     const body = document.querySelector(".questions")
     const div = document.createElement('div')
     div.className =selector
-    div.innerHTML =question
+    div.innerHTML = "<label>" + question + "</label>"
     body.appendChild(div)
    
 
     const list = document.querySelector('.'+selector);
     const liitem = document.createElement('input');
-    liitem.type="text";
+    liitem.type="number";
     liitem.id=selector;
     list.appendChild(liitem);
     const but = document.createElement('button');
@@ -47,7 +47,7 @@ function addSummary(selector){
 function addIncome(){
     //create div
     
-    addQuestion("income","What is your income",addExpenses);
+    addQuestion("income","What is your income? ",addExpenses);
     
     age=addSummary("age");
     
@@ -58,7 +58,7 @@ function addIncome(){
 function addExpenses(){
     
    
-   addQuestion("expenses","What are your expenses",addSavings); 
+   addQuestion("expenses","What are your expenses? ",addSavings); 
    inc=addSummary("income");
    
 } 
@@ -66,7 +66,7 @@ function addExpenses(){
 
 function addSavings(){
     
-    addQuestion("savings","What are your cash savings",TestSavings); 
+    addQuestion("savings","What are your cash savings? ",TestSavings); 
     exp=addSummary("expenses")
   
 
