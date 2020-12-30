@@ -99,12 +99,12 @@ function TestSavings(){
         const append = "<div class = advicebox><p><b> SAVE FIRST BRO</b></p></div>"
         advice.insertAdjacentHTML("beforeend",append);
         reStart();
-    }
+    } else{
     
-    const advice = document.querySelector(".container2");
-        const append = "<div class = advicebox><p><b> You are doing great. Keep going</b></p></div>"
-        advice.insertAdjacentHTML("beforeend",append);
-
+        const advice = document.querySelector(".container2");
+            const append = "<div class = advicebox><p><b> You are doing great. Keep going</b></p></div>"
+            advice.insertAdjacentHTML("beforeend",append);
+        }
 } 
 
 
