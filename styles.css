@@ -1,3 +1,7 @@
+body{
+  
+}
+
 .questions{
   flex : 1;
   
@@ -46,6 +50,34 @@ input{
   }
 
 
+  .age{
+    background-image: url("assets/age.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .income{
+    background-image: url("assets/income.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .expenses{
+    background-image: url("assets/expense.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .savings{
+    background-image: url("assets/savings.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
 
 button {
   appearance:none;
@@ -69,4 +101,22 @@ label {
 
   
 
+.sumtable{
+  border: 1px solid rgb(7, 7, 7);
+  padding: 10px;
+  border-collapse: collapse;
+  border-spacing: 10px;
+  vertical-align: middle;
+  width: 300px;
+  border-color: black;
+  text-align: center;
+}
 
+
+
+td,th,tr{
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid;
+
+}

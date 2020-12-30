@@ -28,18 +28,21 @@ function addQuestion(selector,question,nextfunc)
 
 function addSummary(selector){
     value = document.getElementById(selector).value;
-    
-    const table = document.querySelector(".summarybody")
-    const tabitem = document.createElement('tr')
-    tabitem.innerHTML = "<td> Your "+ selector +" </td> <td> " + value + "</td>";
-    table.appendChild(tabitem);
-    
-    //Remove button from previous step
-    butsel = "."+ selector+"button"
-    element = document.querySelector(butsel)
-    element.parentNode.removeChild(element)
+    if (value){
 
-    return value
+        const table = document.querySelector(".summarybody")
+        const tabitem = document.createElement('tr')
+        tabitem.innerHTML = "<td> Your "+ selector +" </td> <td> " + value + "</td>";
+        table.appendChild(tabitem);
+        
+        //Remove button from previous step
+        butsel = "."+ selector+"button"
+        element = document.querySelector(butsel)
+        element.parentNode.removeChild(element)
+
+        return value
+    }
+    return;
 }
 
 
@@ -47,31 +50,45 @@ function addSummary(selector){
 function addIncome(){
     //create div
     
-    addQuestion("income","What is your income? ",addExpenses);
-    
     age=addSummary("age");
+    if (age){
+        addQuestion("income","What is your income? ",addExpenses);
+    }
     
-    
-     
+        
 } 
 
 function addExpenses(){
     
-   
-   addQuestion("expenses","What are your expenses? ",addSavings); 
-   inc=addSummary("income");
+    inc=addSummary("income");
+   if(inc){
+    addQuestion("expenses","What are your expenses? ",addSavings); 
+   }
    
 } 
 
 
 function addSavings(){
-    
-    addQuestion("savings","What are your cash savings? ",TestSavings); 
     exp=addSummary("expenses")
+    if(exp){
+    addQuestion("savings","What are your cash savings? ",TestSavings); 
+    }
   
 
     
 } 
+
+function reStart(){
+    const advice = document.querySelector(".advicebox");
+     
+    const but = document.createElement('button');
+    but.textContent ='Restart';
+    but.className="restrart";
+    advice.appendChild(but);
+    but.onclick = function () {
+        location.reload();
+   }
+}
 
 function TestSavings(){
       
@@ -81,8 +98,13 @@ function TestSavings(){
         const advice = document.querySelector(".container2");
         const append = "<div class = advicebox><p><b> SAVE FIRST BRO</b></p></div>"
         advice.insertAdjacentHTML("beforeend",append);
+        reStart();
     }
     
+    const advice = document.querySelector(".container2");
+        const append = "<div class = advicebox><p><b> You are doing great. Keep going</b></p></div>"
+        advice.insertAdjacentHTML("beforeend",append);
+
 } 
 
 
