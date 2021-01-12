@@ -47,6 +47,26 @@ function addSummary(selector){
 
 
 
+function addAge(){
+    //create div
+    
+     addQuestion("age","How old are you? ",addIncome);
+     butsel = ".start"
+     element = document.querySelector(butsel)
+     element.parentNode.removeChild(element)
+
+     tablebody = document.querySelector(".sumtable");
+    tablebody.innerHTML= `<thead>
+        <tr>
+            <th> Question </th>
+            <th> Answer </th>
+        </tr>
+    </thead>
+    <tbody class="summarybody">
+
+                            </tbody>` 
+} 
+
 function addIncome(){
     //create div
     
@@ -78,6 +98,12 @@ function addSavings(){
     
 } 
 
+function four1k(){
+    addQuestion("four1k","Do you contrinbute to 401k",TestSavings); 
+    
+} 
+
+
 function reStart(){
     const advice = document.querySelector(".advicebox");
      
@@ -90,24 +116,39 @@ function reStart(){
    }
 }
 
+function nextSet(){
+    const advice = document.querySelector(".advicebox");
+     
+    const but = document.createElement('button');
+    but.textContent ='Continue';
+    but.className="NextSet";
+    advice.appendChild(but);
+    but.onclick = function () {
+        const body = document.querySelector(".questions");
+        body.innerHTML='';
+        const body1 = document.querySelector(".advicebox");
+        body1.innerHTML='';
+        four1k();
+   }
+}
+
 function TestSavings(){
       
     sav=addSummary("savings")
     
     if (sav<=6*exp){
         const advice = document.querySelector(".container2");
-        const append = "<div class = advicebox><p><b> SAVE FIRST BRO</b></p></div>"
+        const append = "<div class = advicebox><div class =\"advicetext\"> SAVE FIRST BRO 🍹</div></div>"
         advice.insertAdjacentHTML("beforeend",append);
         reStart();
     } else{
     
         const advice = document.querySelector(".container2");
-            const append = "<div class = advicebox><p><b> You are doing great. Keep going</b></p></div>"
-            advice.insertAdjacentHTML("beforeend",append);
+        const append = "<div class = advicebox><div class =\"advicetext\"> You are doing great. Continue to next step 🍹</div></div>"
+        advice.insertAdjacentHTML("beforeend",append);
+        nextSet();
         }
 } 
 
 
-//exp = document.querySelector(".exp").value;
-  //  console.log("exp", exp)
-    
+
